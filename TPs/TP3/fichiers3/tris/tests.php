@@ -19,4 +19,13 @@ echo "tableau de chaînes trié par la fonction strcmp : ";
 usort($tab, 'strcmp');
 print_r($tab);
 
+echo "tableau de chaînes trié par la fonction comparerChainesParLongueur : ";
+usort($tab, 'comparerChainesParLongueur');
+print_r($tab);
+
+
+echo "tableau de chaînes trié par la fonction comparerChainesParLongueurPlus : ";
+usort($tab, 'comparerChainesParLongueurPlus');
+print_r($tab);
+
 ?>
