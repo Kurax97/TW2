@@ -1,0 +1,56 @@
+body{
+	background-color: WhiteSmoke;
+	font-family: "Times New Roman", Times, serif;
+}
+
+header h1{
+	text-align: center;
+	color: #144F5C;
+}
+/*
+.livre{
+	display: inline-block;
+	padding: 20px;
+	width: 200px;
+	height: 400px;
+}
+
+.couverture img{
+	width: 200px;
+	height: 268px;
+}
+
+div.couverture{
+	align-items: center;
+		margin : 0 auto;
+}
+*/
+
+.livre{
+	float: left;
+	margin: 15px;
+	width: 160px;
+	height: 270px;
+	align-items: center;
+	padding-bottom: 50px;
+}
+.couverture{
+	width: 100%:;
+	height: 70%;
+	border: solid black 1px;
+}
+.couverture img{
+	width: 100%;
+	height: 100%;
+}
+.description{
+	width: 100%;
+	height: 30%;
+	text-align: center;
+}
+.titre{
+	color : #144F5C;
+}
+
+
+

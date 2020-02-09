@@ -170,23 +170,6 @@ function bookToHTML($book){
 
 }
 */
-function compareBooks($book1, $book2){
-  return strcmp($book1[titre],$book2[titre]);
-}
-
-function compareCat($book1, $book2){
-  $ca = strcmp($book1[catégorie], $book2[catégorie]);
-  if ($ca !== 0)
-    return $ca;
-  else{
-    $an = strcmp($book1[année], $book2[année]);
-    if ($an !== 0)
-      return $an;
-    else{
-      return compareBooks($book1, $book2);
-    }
-  }
-}
 
 function loadBiblio($file){
   $suiteArticle = "";
@@ -194,16 +177,7 @@ function loadBiblio($file){
   return $libraryArray;
 }
 
-function biblioToHTML($liste, $sort = NULL){
-  if($sort !== NULL && $sort !== "titles" && $sort !== "categories"){
-    throw new Exception("Invalid sort");
-  }
-  elseif ($sort === "titles"){
-    usort($liste, "compareBooks");
-  }
-  elseif($sort === "categories"){
-    usort($liste, "compareCat");
-  }
+function biblioToHTML($liste){
   $suiteArticle = "";
   $lengthLibrary = sizeof($liste);
   for ($i = 0; $i < $lengthLibrary; $i++){
@@ -211,6 +185,8 @@ function biblioToHTML($liste, $sort = NULL){
   }
   return $suiteArticle;
 }
+
+
 
 ?>
 
