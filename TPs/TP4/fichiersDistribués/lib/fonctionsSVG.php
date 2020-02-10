@@ -18,7 +18,16 @@ function carreInscrit($cx, $cy, $r, $angle = 0){
     return "<rect x=\"$x\" y=\"$y\" width=\"$long\" height=\"$long\" transform=\"rotate($angle,$x,$y)\"/>";
 
 }
-
+function triangleInscrit($cx, $cy, $r, $angle=0){
+  $cote = $r * sqrt(3);
+  $x0 = $cx;
+  $y0 = $cy + $r;
+  $x1 = $cx - $cote/2;
+  $y1 = $cy - $r/2;
+  $x2 = $cx + $cote/2;
+  $y2 = $y1;
+  return "<polygon points =\"$x0,$y0 $x1,$y1 $x2,$y2\" transform = \"rotate($angle,$cx,$cy)\">";
+}
 
 
 ?>
