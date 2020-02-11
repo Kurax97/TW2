@@ -41,7 +41,7 @@
         </style>
     </head>
     <body>
-        <h1>Test SVG</h1>
+        <h1>Votre SVG</h1>
         <svg viewBox="-320,-320,640,640" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
             <!-- axes et graduations -->
             <line class ="axe" id="axeX" x1="0" y1="0" x2="300" y2="0"/>
@@ -73,9 +73,22 @@
             <!-- dessin   -->
             <g id="dessin">
   <?php
+  $arrayFig = array("cercle", "carre", "triangle", "all");
+  if (in_array($_GET['fig'], $arrayFig)){
+    echo cercle($centreX,$centreY,$rayon)
+  }
+  if ($_GET['fig'] === "carre"){
+    echo cercle($centreX,$centreY,$rayon)
+  }
+  if ($_GET['fig'] === "triangle"){
+    echo cercle($centreX,$centreY,$rayon)
+  }
+  if ($_GET['fig'] === "cercle"){
+    echo cercle($centreX,$centreY,$rayon)
+  }
    echo cercle($centreX,$centreY,$rayon)."\n";
    echo carreInscrit($centreX,$centreY,$rayon);
-   echo polygon($l)."\n";
+   echo triangleInscrit($centreX,$centreY,$rayon);
    /*
    echo carreInscrit($centreX,$centreY,$rayon,$angle)."\n";
    echo triangleInscrit($centreX,$centreY,$rayon,$angle)."\n";
