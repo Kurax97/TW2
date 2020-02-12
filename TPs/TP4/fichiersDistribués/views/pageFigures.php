@@ -75,7 +75,7 @@
   <?php
   $arrayFig = array("cercle", "carre", "triangle", "all");
   if (in_array($_GET['fig'], $arrayFig)){
-    echo cercle($centreX,$centreY,$rayon)
+    echo cercle($centreX,$centreY,$rayons)
   }
   if ($_GET['fig'] === "carre"){
     echo cercle($centreX,$centreY,$rayon)
