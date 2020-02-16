@@ -1,0 +1,13 @@
+1. La faille du site de Padawan se trouve dans les informations obtenus par $_GET. 
+Pour afficher des informations « confidentielles » figurant sur le site de Padawan il faut se rendre au lien : 172.28.100.35/~padawan/index.php?page=../data/config.txt
+Et on verra qu'on peut voir le fichier config dans le site alors que l'utilisateur ne deverai pas accéder à ce fichier.
+
+2. Pour la solution il suffit de vérifier les informations obtenus par $_GET avant de les utiliser.
+On crée un tableau de valeurs qu'on accepte dans ce cas les pages du site : 
+
+$arrayPages = ["acceuil.html", "presentation.html", "whattimeisit.php"];
+if (in_array($_GET, $arrayPages){
+	..
+}else{
+	//throw une erreur..
+}
