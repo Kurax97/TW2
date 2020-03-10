@@ -1,0 +1,67 @@
+1-
+	a. select dossard, nom from coureurs
+	b. select dossard, nom from coureurs order by dossard 
+	c. select dossard, nom, equipe from coureurs order by equipe, nom
+	d. select nom, dossard, taille from coureurs order by taille
+	e. select nom, dossard from coureurs where equipe = 'LavePlusBlanc'
+	f. select coureurs."nom", coureurs."dossard" from coureurs where equipe = 'LavePlusBlanc'
+	g. select coureurs."nom", coureurs."taille", coureurs."equipe" from coureurs where taille < 180
+	h. select coureurs."nom", coureurs."taille", coureurs."equipe" from coureurs where taille < 180 order by taille
+	i. select couleur from equipes
+
+2-
+	a. select nom || ' appartient à l''équipe ' || equipe from coureurs
+	b. select nom || ' appartient à l''équipe ' || equipe as appartenance from coureurs
+	c. select upper(nom) as "nom maj", length(nom) as lg from coureurs
+	d. V1: select upper(nom) as "nom maj", length(nom) as lg from coureurs order by lg
+ 	   V2: select upper(nom), length(nom) from coureurs order by length(nom)
+	e. select UPPER(LEFT(nom,1))||LOWER(SUBSTRING(nom,2,LENGTH(nom))) as nom, dossard, UPPER(LEFT(equipe,3))||LOWER(SUBSTRING(equipe,4,LENGTH(equipe))) as equipe from coureurs
+
+3-
+	a. select nom from coureurs where nom LIKE 'a%'
+	b. select non from coureurs where nom like 'er%'
+	c. select nom from coureurs where nom like '_____'
+	d. select nom from coureurs where nom like '%a__'
+	e. select nom from coureurs where nom like '%a__%' 
+
+4- 
+	a. select taille/100 from coureurs
+	b. select taille/100.0 from coureurs
+	C. select cast(taille/100.0 as float) from coureurs
+	d. select trunc(taille/100.0, 2) from coureurs
+
+5-
+	a. select * from coureurs, equipes
+	b. V1: select * from coureurs, equipes where coureurs.equipe LIKE equipes.nom
+	   V2: select * from coureurs join equipes on coureurs.equipe = equipes.nom
+	c. select coureurs.nom, coureurs.dossard, coureurs.equipe, equipes.couleur from coureurs join equipes on coureurs.equipe = equipes.nom 
+	d. select coureurs.nom, equipes.directeur from coureurs join equipes on coureurs.equipe = equipes.nom 
+	e. select coureurs.nom, coureurs.dossard from coureurs join equipes on coureurs.equipe = equipes.nom  where equipes.directeur = 'Ralph'
+	f. select equipes.directeur from equipes join coureurs on coureurs.equipe = equipes.nom  where coureurs.nom = 'alphonse'
+
+6-
+	a. insert into equipes (couleur,directeur,nom) values ('black','Simo','KitKat')
+	b. insert into coureurs (dossard, nom, equipe, taille) values ('8','mohammed','KitKat', 180)
+	b. insert into coureurs (dossard, nom, equipe, taille) values ('9','lyes','KitKat', 183)
+
+7-
+	a. select * from equipes where equipes.directeur is null
+	b. select * from equipes where equipes.directeur is not null
+
+8- 
+	a. update coureurs set taille = taille  - 1 where coureurs.equipe = 'PicsouBank'
+	b. update equipes set directeur = 'Lyes' where nom = 'Nouvelle Équipe'
+
+9-
+	a. insert into étape (dossard, arrivee) values (8 ,'14:50:40')
+	insert into étape (dossard, arrivee) values (9 ,'15:50:40')
+	insert into étape (dossard, arrivee) values (1 ,'17:32:30')
+	insert into étape (dossard, arrivee) values (2 ,'18:20:40')
+	insert into étape (dossard, arrivee) values (4 ,'18:50:40')
+
+
+10- 
+	a. select coureurs.nom, coureurs.dossard, etape.arrivee from coureurs join etape on etape.dossard = coureurs.dossard order by etape.arrivee
+	b. select coureurs.nom, coureurs.dossard, etape.arrivee from coureurs join etape on etape.dossard = coureurs.dossard where etape.arrivee < '16:00:00' order by etape.arrivee
+	c. select coureurs.nom, coureurs.dossard, coureurs.equipe, equipes.couleur, etape.arrivee from coureurs join etape on etape.dossard = coureurs.dossard join equipes on equipes.nom = coureurs.equipe order by etape.arrivee
+	
